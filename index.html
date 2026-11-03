@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home · Aqua Pink</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Welcome to My Personal Website</h1></header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">ABOUT ▾</a>
+      <div class="dropdown-content">
+        <a href="skills.html">Skills I'm Developing</a>
+        <a href="goals.html">My Goals as a Student</a>
+        <a href="funfacts.html">Fun Facts About Me</a>
+      </div>
+    </li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()">LOG OUT</a></li>
+  </ul>
+</nav>
+
+<section id="section2"></section>
+
+<div class="slider" aria-label="Welcome image slider">
+  <div class="slides">
+
+    <div class="slide">
+      <img src="/wave.png" alt="First slideshow image">
+      <div class="text-overlay">
+        <p class="eyebrow">
+        <h1>Make waves<br><span style="color:#ffb8df">Create your future.</span></h1>
+       
+        <div class="hero-actions">
+          <a class="btn" href="skills.html">Explore my skills ↗</a>
+          <a class="btn secondary" href="gallery.html">View gallery</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="/curious.jpeg" alt="Second slideshow image">
+      <div class="text-overlay">
+        <p class="eyebrow">LEARN · CREATE · IMPROVE</p>
+        <h2>Curiosity is<br>the current.</h2>
+
+        <div class="hero-actions">
+          <a class="btn" href="goals.html">See my goals ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="/step.jpeg" alt="Third slideshow image">
+      <div class="text-overlay">
+        <p class="eyebrow">WELCOME TO MY WORLD</p>
+        <h2>Small steps<br><span style="color:#a9fbff">Big possibilities.</span></h2>
+
+        <div class="hero-actions">
+          <a class="btn" href="funfacts.html">Get to know me ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-dots">
+    <button class="hero-dot active" aria-label="Slide 1" onclick="showSlide(0);restartSlideTimer()"></button>
+    <button class="hero-dot" aria-label="Slide 2" onclick="showSlide(1);restartSlideTimer()"></button>
+    <button class="hero-dot" aria-label="Slide 3" onclick="showSlide(2);restartSlideTimer()"></button>
+  </div>
+</div>
+
+<section id="drop">
+  <p class="eyebrow">
+  <h2 class="page-title">Fun, <span>Facts</span></h2>
+  <p class="page-intro">Tap or click a card to flip it and reveal a little more.</p>
+
+  <div class="funfact-container">
+    <div class="funfact-card" tabindex="0" role="button"
+      onclick="this.classList.toggle('flipped')"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+      <div class="funfact-inner">
+        <div class="funfact-front"><span class="symbol">⌘</span><p>I love programming</p></div>
+        <div class="funfact-back"><p>I enjoy learning how code can turn an idea into something useful.</p></div>
+      </div>
+    </div>
+
+    <div class="funfact-card" tabindex="0" role="button"
+      onclick="this.classList.toggle('flipped')"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+      <div class="funfact-inner">
+        <div class="funfact-front"><span class="symbol">☕</span><p>Coffee explorer</p></div>
+        <div class="funfact-back"><p>A short break can help refresh my mind after studying.</p></div>
+      </div>
+    </div>
+
+    <div class="funfact-card" tabindex="0" role="button"
+      onclick="this.classList.toggle('flipped')"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+      <div class="funfact-inner">
+        <div class="funfact-front"><span class="symbol">♫</span><p>Code + music</p></div>
+        <div class="funfact-back"><p>A good playlist makes creative work more enjoyable.</p></div>
+      </div>
+    </div>
+
+    <div class="funfact-card" tabindex="0" role="button"
+      onclick="this.classList.toggle('flipped')"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+      <div class="funfact-inner">
+        <div class="funfact-front"><span class="symbol">✧</span><p>Goal setter</p></div>
+        <div class="funfact-back"><p>I believe small, consistent progress adds up over time.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="see-more-container">
+    <a href="funfacts.html" class="see-more-button">See all fun facts ↗</a>
+  </div>
+</section>
+
+<div class="container">
+  <div class="image-section">
+    <img src="/pytt.png" alt="Profile photo">
+  </div>
+
+  <div class="quote-section">
+    <p class="eyebrow" style="text-align:left">
+    <h1>Hi, I'm <span class="accent"> Faith Davao<Davao/span></h1>
+    <p>
+      I am an IT student who enjoys learning about computers, technology, and website development. I want to improve my programming skills and become an IT developer.
+    </p>
+    <blockquote>“My journey may be full of errors, but I will never stop running toward my dreams.”</blockquote>
+    <div class="hero-actions">
+      <a class="see-more-button" href="contact.html">Let's connect ↗</a>
+    </div>
+  </div>
+</div>
+
+<footer><p>© 2026 My Personal Website · Aqua Pink</p></footer>
+<div class="footer-divider"></div>
+
+<script>
+const slides = document.querySelector('.slides');
+const dots = [...document.querySelectorAll('.hero-dot')];
+let slideIndex = 0;
+let slideTimer;
+
+function showSlide(n) {
+  slideIndex = (n + 3) % 3;
+  slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === slideIndex));
+}
+
+function restartSlideTimer() {
+  clearInterval(slideTimer);
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    slideTimer = setInterval(() => showSlide(slideIndex + 1), 5000);
+  }
+}
+
+restartSlideTimer();
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

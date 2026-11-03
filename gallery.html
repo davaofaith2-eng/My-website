@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Welcome to My Personal Website</h1></header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">ABOUT ▾</a>
+      <div class="dropdown-content">
+        <a href="skills.html">Skills I'm Developing</a>
+        <a href="goals.html">My Goals as a Student</a>
+        <a href="funfacts.html">Fun Facts About Me</a>
+      </div>
+    </li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()">LOG OUT</a></li>
+  </ul>
+</nav>
+
+<section id="section2"></section>
+
+<main class="page-shell">
+  <section id="drop">
+    <p class="eyebrow">
+    <h2 class="page-title">My <span>Gallery</span></h2>
+    <p class="page-intro">Click any image to enlarge it. Use the arrows or keyboard arrow keys to browse.</p>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="/mee.jpeg" alt="Gallery photo one" class="thumbnail" onclick="openLightbox(0)">
+        <p class="image-description"> My favorite view</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="/ins.jpeg" alt="Gallery photo two" class="thumbnail" onclick="openLightbox(1)">
+        <p class="image-description">Everyday inspiration</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="/memo.jpeg" alt="Gallery photo three" class="thumbnail" onclick="openLightbox(2)">
+        <p class="image-description">  new memory</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="/emm.jpeg" alt="Gallery photo four" class="thumbnail" onclick="openLightbox(3)">
+        <p class="image-description"> Favorite scene</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="/nep.webp" alt="Gallery photo five" class="thumbnail" onclick="openLightbox(4)">
+        <p class="image-description">Nephew</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="/new.webp" alt="Gallery photo six" class="thumbnail" onclick="openLightbox(5)">
+        <p class="image-description">Another memory</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="lightbox" class="lightbox" aria-hidden="true"
+  onclick="if(event.target===this)closeLightbox()">
+  <button class="close" aria-label="Close image" onclick="closeLightbox()">×</button>
+  <button class="prev" aria-label="Previous image" onclick="changeImage(-1)">‹</button>
+  <img id="lightboxImage" class="lightbox-content" src="" alt="Expanded gallery image">
+  <button class="next" aria-label="Next image" onclick="changeImage(1)">›</button>
+</div>
+
+<footer><p>© 2026 My Personal Website · Aqua Pink</p></footer>
+<div class="footer-divider"></div>
+<script src="script.js"></script>
+</body>
+</html>

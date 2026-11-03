@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Sign Up · Aqua Pink</title>
+  <link rel="stylesheet" href="login_style.css">
+</head>
+<body>
+
+<div class="form-container">
+  <div class="brand-mark">☪</div>
+
+  <h2 id="formTitle">Login</h2>
+  <p class="form-subtitle" id="formSubtitle">
+    Welcome back. Let's make something amazing.
+  </p>
+
+  <form id="authForm">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      autocomplete="username"
+      placeholder="Enter your username"
+      required
+    >
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      autocomplete="current-password"
+      placeholder="Enter your password"
+      required
+      minlength="4"
+    >
+
+    <div class="show-password" id="showPasswordContainer">
+      <input
+        type="checkbox"
+        id="showPassword"
+      >
+      <label for="showPassword">Show password</label>
+    </div>
+
+    <label for="confirmPassword" id="confirmPasswordLabel" style="display:none">
+      Confirm password
+    </label>
+
+    <input
+      type="password"
+      id="confirmPassword"
+      autocomplete="new-password"
+      placeholder="Re-enter your password"
+      style="display:none"
+    >
+
+    <p id="passwordMatchMessage" style="display:none"></p>
+
+    <button type="submit" id="submitButton">Login</button>
+    <p id="errorMessage" role="status" aria-live="polite"></p>
+
+    <p id="toggleText">
+      Don't have an account?
+      <a href="#" id="toggleLink">Sign Up</a>
+    </p>
+
+    <p class="form-note">
+      Student website demo. Account details are stored locally in this browser.
+    </p>
+  </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  let isLogin = true;
+
+  const form = document.getElementById('authForm');
+  const usernameField = document.getElementById('username');
+  const passwordField = document.getElementById('password');
+  const confirmField = document.getElementById('confirmPassword');
+  const confirmLabel = document.getElementById('confirmPasswordLabel');
+  const showContainer = document.getElementById('showPasswordContainer');
+  const showCheckbox = document.getElementById('showPassword');
+  const error = document.getElementById('errorMessage');
+  const matchMessage = document.getElementById('passwordMatchMessage');
+  const toggleLink = document.getElementById('toggleLink');
+
+  // Switch between Login and Sign Up
+  function toggleForm(event) {
+    if (event) event.preventDefault();
+
+    isLogin = !isLogin;
+
+    form.reset();
+    error.textContent = '';
+    matchMessage.textContent = '';
+    matchMessage.style.display = 'none';
+
+    document.getElementById('formTitle').textContent =
+      isLogin ? 'Login' : 'Sign Up';
+
+    document.getElementById('formSubtitle').textContent =
+      isLogin
+        ? "Welcome back. Let's make something amazing."
+        : 'Create your account to enter the website.';
+
+    document.getElementById('submitButton').textContent =
+      isLogin ? 'Login' : 'Create Account';
+
+    confirmField.style.display = isLogin ? 'none' : 'block';
+    confirmLabel.style.display = isLogin ? 'none' : 'block';
+
+    confirmField.required = !isLogin;
+    showContainer.style.display = isLogin ? 'flex' : 'none';
+
+    passwordField.type = 'password';
+    confirmField.type = 'password';
+    showCheckbox.checked = false;
+
+    passwordField.autocomplete =
+      isLogin ? 'current-password' : 'new-password';
+
+    toggleLink.textContent = isLogin ? 'Sign Up' : 'Login';
+
+    document.getElementById('toggleText').firstChild.textContent =
+      isLogin
+        ? "Don't have an account? "
+        : 'Already have an account? ';
+  }
+
+  toggleLink.addEventListener('click', toggleForm);
+
+  // Show or hide password
+  showCheckbox.addEventListener('change', function () {
+    passwordField.type = this.checked ? 'text' : 'password';
+  });
+
+  // Confirm password live check
+  confirmField.addEventListener('input', function () {
+    const password = passwordField.value;
+    const confirm = confirmField.value;
+
+    if (!confirm) {
+      matchMessage.style.display = 'none';
+      matchMessage.textContent = '';
+      return;
+    }
+
+    matchMessage.style.display = 'block';
+
+    if (password === confirm) {
+      matchMessage.textContent = 'Passwords match';
+      matchMessage.style.color = '#16835d';
+    } else {
+      matchMessage.textContent = 'Passwords do not match';
+      matchMessage.style.color = '#bd3b54';
+    }
+  });
+
+  passwordField.addEventListener('input', function () {
+    if (confirmField.value) {
+      confirmField.dispatchEvent(new Event('input'));
+    }
+  });
+
+  // Login and Sign Up
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    error.textContent = '';
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const username = usernameField.value.trim();
+    const password = passwordField.value;
+
+    if (!username || !password) {
+      error.textContent = 'Please complete all required fields.';
+      return;
+    }
+
+    let accounts = {};
+
+    try {
+      accounts = JSON.parse(
+        localStorage.getItem('aquaPinkAccounts') || '{}'
+      );
+
+      if (
+        !accounts ||
+        typeof accounts !== 'object' ||
+        Array.isArray(accounts)
+      ) {
+        accounts = {};
+      }
+    } catch (e) {
+      error.textContent = 'Unable to read saved accounts in this browser.';
+      return;
+    }
+
+    if (isLogin) {
+      // Support accounts created by the original version too
+      const oldUsername = localStorage.getItem('username');
+      const oldPassword = localStorage.getItem('password');
+
+      if (username === oldUsername && password === oldPassword &&
+          oldUsername !== null && oldPassword !== null) {
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+        return;
+      }
+
+      const account = accounts[username];
+
+      if (account && account.password === password) {
+        localStorage.setItem('username', username);
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+      } else {
+        error.textContent =
+          'Invalid username or password. Sign up first if this is your first visit.';
+      }
+
+      return;
+    }
+
+    // Sign Up validation
+    if (password.length < 4) {
+      error.textContent =
+        'Use a password with at least 4 characters for this classroom demo.';
+      return;
+    }
+
+    const confirm = confirmField.value;
+
+    if (password !== confirm) {
+      error.textContent = 'Passwords do not match.';
+      return;
+    }
+
+    if (Object.prototype.hasOwnProperty.call(accounts, username)) {
+      error.textContent = 'Username already exists. Please choose another.';
+      return;
+    }
+
+    accounts[username] = {
+      password: password
+    };
+
+    try {
+      localStorage.setItem('aquaPinkAccounts', JSON.stringify(accounts));
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+    } catch (e) {
+      error.textContent = 'Unable to save your account in this browser.';
+      return;
+    }
+
+    alert('Account created successfully! You can now log in.');
+
+    // Return to Login form
+    toggleForm();
+  });
+
+  // Floating bubbles on login screen
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (let i = 0; i < 17; i++) {
+      const drop = document.createElement('span');
+
+      drop.className = 'login-drop';
+      drop.style.left = Math.random() * 100 + '%';
+      drop.style.setProperty('--size', 10 + Math.random() * 34 + 'px');
+      drop.style.setProperty('--duration', 12 + Math.random() * 18 + 's');
+      drop.style.setProperty('--delay', -Math.random() * 25 + 's');
+
+      document.body.appendChild(drop);
+    }
+  }
+});
+</script>
+
+</body>
+</html>

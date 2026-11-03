@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills I'm Developing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Welcome to My Personal Website</h1></header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">ABOUT ▾</a>
+      <div class="dropdown-content">
+        <a href="skills.html">Skills I'm Developing</a>
+        <a href="goals.html">My Goals as a Student</a>
+        <a href="funfacts.html">Fun Facts About Me</a>
+      </div>
+    </li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()">LOG OUT</a></li>
+  </ul>
+</nav>
+
+<section id="section2"></section>
+
+<main class="page-shell">
+  <section id="drop">
+    <p class="eyebrow">
+    <h2 class="page-title">Skills I'm <span>Developing</span></h2>
+    <p class="page-intro">Choose a category to explore the skills I’m developing as a student.</p>
+
+    <section id="skills">
+      <div class="tab">
+        <button class="tablinks active" onclick="openTab(event,'IT')">Information Technology</button>
+        <button class="tablinks" onclick="openTab(event,'GraphicDesign')">Graphic Design</button>
+        <button class="tablinks" onclick="openTab(event,'PublicSpeaking')">Public Speaking</button>
+        <button class="tablinks" onclick="openTab(event,'ProblemSolving')">Problem Solving</button>
+      </div>
+
+      <div id="IT" class="tabcontent" style="display:block">
+        <h3>Information Technology</h3>
+        <ul>
+          <li>Learning front-end development using HTML, CSS, and JavaScript.</li>
+          <li>Practicing responsive layouts for different devices.</li>
+          <li>Creating modern and easy-to-use web interfaces.</li>
+        </ul>
+      </div>
+
+      <div id="GraphicDesign" class="tabcontent">
+        <h3>Graphic Design</h3>
+        <ul>
+          <li>Exploring visual design and digital illustration tools.</li>
+          <li>Practicing layout, color, and typography.</li>
+          <li>Combining design with web development.</li>
+        </ul>
+      </div>
+
+      <div id="PublicSpeaking" class="tabcontent">
+        <h3>Public Speaking</h3>
+        <ul>
+          <li>Building communication skills through class presentations.</li>
+          <li>Practicing clear explanations and storytelling.</li>
+          <li>Learning to share ideas with confidence.</li>
+        </ul>
+      </div>
+
+      <div id="ProblemSolving" class="tabcontent">
+        <h3>Problem Solving and Critical Thinking</h3>
+        <ul>
+          <li>Practicing coding challenges and project-based learning.</li>
+          <li>Breaking large tasks into smaller steps.</li>
+          <li>Testing solutions and improving my workflow.</li>
+        </ul>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer><p>© 2026 My Personal Website · Aqua Pink</p></footer>
+<div class="footer-divider"></div>
+<script src="script.js"></script>
+</body>
+</html>

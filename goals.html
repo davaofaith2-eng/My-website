@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Goals as a Student</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Welcome to My Personal Website</h1></header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">ABOUT ▾</a>
+      <div class="dropdown-content">
+        <a href="skills.html">Skills I'm Developing</a>
+        <a href="goals.html">My Goals as a Student</a>
+        <a href="funfacts.html">Fun Facts About Me</a>
+      </div>
+    </li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()">LOG OUT</a></li>
+  </ul>
+</nav>
+
+<section id="section2"></section>
+
+<main class="page-shell">
+  <section id="drop">
+    <p class="eyebrow">
+    <h2 class="page-title">My Goals <span>as a Student</span></h2>
+    <p class="page-intro">Click a card to expand the details. Progress starts with a clear next step.</p>
+
+    <div class="goal-grid">
+      <div class="goal-card" onclick="toggleGoalDetails(1)">
+        <div class="goal-header">01 · Short-Term Goals</div>
+        <p><strong>Improve my web development skills.</strong></p>
+        <div class="goal-details" id="goal1-details">
+          <p>Practice HTML, CSS, and JavaScript, finish class activities, and ask questions when a topic is unclear.</p>
+        </div>
+      </div>
+
+      <div class="goal-card" onclick="toggleGoalDetails(2)">
+        <div class="goal-header">02 · Long-Term Goals</div>
+        <p><strong>Become a capable front-end developer.</strong></p>
+        <div class="goal-details" id="goal2-details">
+          <p>Build a portfolio, strengthen problem-solving skills, and learn how to create useful digital experiences.</p>
+        </div>
+      </div>
+
+      <div class="goal-card" onclick="toggleGoalDetails(3)">
+        <div class="goal-header">03 · Personal Growth</div>
+        <p><strong>Build confidence and consistency.</strong></p>
+        <div class="goal-details" id="goal3-details">
+          <p>Manage time responsibly, stay open to feedback, and build good learning habits.</p>
+        </div>
+      </div>
+
+      <div class="goal-card" onclick="toggleGoalDetails(4)">
+        <div class="goal-header">04 · Career Goals</div>
+        <p><strong>Prepare for opportunities in IT.</strong></p>
+        <div class="goal-details" id="goal4-details">
+          <p>Keep learning, gain practical experience, communicate clearly, and contribute to projects that solve problems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><p>© 2026 My Personal Website · Aqua Pink</p></footer>
+<div class="footer-divider"></div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Facts About Me</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Welcome to My Personal Website</h1></header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">ABOUT ▾</a>
+      <div class="dropdown-content">
+        <a href="skills.html">Skills I'm Developing</a>
+        <a href="goals.html">My Goals as a Student</a>
+        <a href="funfacts.html">Fun Facts About Me</a>
+      </div>
+    </li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()">LOG OUT</a></li>
+  </ul>
+</nav>
+
+<section id="section2"></section>
+
+<main class="page-shell">
+  <section id="drop">
+    <p class="eyebrow">
+    <h2 class="page-title">Fun Facts <span>About Me</span></h2>
+    <p class="page-intro"> Tap or click a card to flip it and reveal the other side.</p>
+
+    <div class="funfact-container">
+      <div class="funfact-card" tabindex="0" role="button"
+        onclick="this.classList.toggle('flipped')"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+        <div class="funfact-inner">
+          <div class="funfact-front"><span class="symbol">⌘</span><p>Programming fan</p></div>
+          <div class="funfact-back"><p>I like discovering how code can turn an idea into something interactive.</p></div>
+        </div>
+      </div>
+
+      <div class="funfact-card" tabindex="0" role="button"
+        onclick="this.classList.toggle('flipped')"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+        <div class="funfact-inner">
+          <div class="funfact-front"><span class="symbol">☕</span><p>Coffee explorer</p></div>
+          <div class="funfact-back"><p>A change of scenery and a short break can refresh my mind while studying.</p></div>
+        </div>
+      </div>
+      
+      
+
+      <div class="funfact-card" tabindex="0" role="button"
+        onclick="this.classList.toggle('flipped')"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+        <div class="funfact-inner">
+          <div class="funfact-front"><span class="symbol">♫</span><p>Music mood</p></div>
+          <div class="funfact-back"><p>Music is a nice companion for creative work and study sessions.</p></div>
+        </div>
+      </div>
+      
+       <div class="funfact-card" tabindex="0" role="button"
+        onclick="this.classList.toggle('flipped')"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+       <div class="funfact-inner">
+  <div class="funfact-front">
+    <span class="symbol">💡</span>
+    <p>Problem solver</p>
+  </div>
+  <div class="funfact-back">
+    <p>I like figuring out why something works and how to improve it.</p>
+  </div>
+</div>
+</div>
+      
+       <div class="funfact-card" tabindex="0" role="button"
+        onclick="this.classList.toggle('flipped')"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+ <div class="funfact-inner">
+  <div class="funfact-front"><span class="symbol">🌱</span><p>Learning</p></div>
+  <div class="funfact-back"><p>I Believe every mistake is an opportunity to learn.</p></div>
+</div>
+</div>
+
+      <div class="funfact-card" tabindex="0" role="button"
+        onclick="this.classList.toggle('flipped')"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+        <div class="funfact-inner">
+          <div class="funfact-front"><span class="symbol">✧</span><p>Dream builder</p></div>
+          <div class="funfact-back"><p>I like setting goals and celebrating progress, even when it comes in small steps.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><p>© 2026 My Personal Website · Aqua Pink</p></footer>
+<div class="footer-divider"></div>
+<script src="script.js"></script>
+</body>
+</html>

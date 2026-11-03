@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Welcome to My Personal Website</h1></header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropbtn">ABOUT ▾</a>
+      <div class="dropdown-content">
+        <a href="skills.html">Skills I'm Developing</a>
+        <a href="goals.html">My Goals as a Student</a>
+        <a href="funfacts.html">Fun Facts About Me</a>
+      </div>
+    </li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="javascript:void(0);" class="logout-button" onclick="confirmLogout()">LOG OUT</a></li>
+  </ul>
+</nav>
+
+<section id="section2"></section>
+
+<main>
+  <section id="contact">
+    <p class="eyebrow">
+    <h2>Let's <span class="accent">Connect.</span></h2>
+    <p class="page-intro">
+      Have a question or want to share an idea? Send a message using the form.
+    </p>
+
+    <div class="contact-content">
+      <form class="contact-form" id="contactForm" novalidate>
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+        <span class="error" id="nameError"></span>
+
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <span class="error" id="emailError"></span>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+        <span class="error" id="messageError"></span>
+
+        <button class="btn" type="submit">Send message ↗</button>
+
+        <p id="successMessage" class="success-message" role="status">
+          Your form passed validation! This classroom demo does not send messages to a server.
+        </p>
+      </form>
+
+<aside class="contact-details">
+          <p class="eyebrow">SYSTEM INFORMATION</p>
+          <h3>Contact Details</h3>
+          <p>09123478908</p>
+          <p><strong>Student:</strong> Faith S.Davao</p>
+          <p><strong>Course:</strong> BS Information Technology</p>
+          <p><strong>Email:</strong> davaofaith2gmail.com</p>
+          <p style="font-size:13px;color:#9cb5ce">
+           
+        </p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  let valid = true;
+
+  const setError = (id, text) => {
+    document.getElementById(id).textContent = text;
+  };
+
+  setError('nameError', '');
+  setError('emailError', '');
+  setError('messageError', '');
+  document.getElementById('successMessage').classList.remove('show');
+
+  if (!name) {
+    setError('nameError', 'Please enter your name.');
+    valid = false;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setError('emailError', 'Please enter a valid email address.');
+    valid = false;
+  }
+
+  if (message.length < 8) {
+    setError('messageError', 'Please write at least 8 characters.');
+    valid = false;
+  }
+
+  if (valid) {
+    document.getElementById('successMessage').classList.add('show');
+    this.reset();
+  }
+});
+</script>
+
+<footer><p>© 2026 My Personal Website · Aqua Pink</p></footer>
+<div class="footer-divider"></div>
+<script src="script.js"></script>
+</body>
+</html>
